@@ -1,6 +1,6 @@
 <h1 align="center">📊 Data Analytics Portfolio</h1>
 
-1. ## EXTRACTING AND VISUALISING STOCK DATA ##
+## 01. EXTRACTING AND VISUALISING STOCK DATA
 
 **PROBLEM** - Similar to project no.3
 
@@ -15,14 +15,14 @@
 
 **File** - [view notebook](./Stock_data_extraction.ipynb)
 
-**VISUALISATIONS SCREENSHOTS** - [Tesla revenue graph](./images/Tesla_revenue.png)
-[Tesla Share Price graph](./images/Tesla_share_price.png)
-[GameStop revenue graph](./images/Gamestop_revenue.png)
-[GameStop Share Price graph](./images/Gamestop_share_price.png)
+**VISUALISATIONS SCREENSHOTS** -![Tesla revenue graph](./images/Tesla_revenue.png)
+![Tesla Price graph](./images/Tesla_share_price.png)
+![GameStop revenue graph](./images/Gamestop_revenue.png)
+![GameStop Share price graph](./images/Gamestop_share_price.png)
 
 
 
-2. ## HOUSE SALES PREDICTIVE MODELLING (KING COUNTY, WA) ##
+## 02. HOUSE SALES PREDICTIVE MODELLING (KING COUNTY, WA)
 
 **PROBLEM** - Real estate investors in King County lack a data-driven way to predict property values, leading to potential overpayment or missed opportunities.
 
@@ -40,7 +40,7 @@
 
 
 
-3. ## AUTOMATED FINANCIAL DATA SCRAPER ##
+## 03. AUTOMATED FINANCIAL DATA SCRAPER
 
 **PROBLEM** - Manual tracking of stock market fluctuations is inefficient and prone to human error, hindering real-time decision-making.
 
@@ -59,7 +59,7 @@
 
 
 
-4. ## INTERACTIVE DATA STORYTELLING ##
+## 04. INTERACTIVE DATA STORYTELLING
 
 **PROBLEM** - Management lacks a centralized, interactive view of regional performance, making it difficult to spot trends over time.
 
@@ -75,14 +75,14 @@
 
 **File** - [view notebook](./Interactive_dashboard.ipynb)
 
-**DASHBOARD SCREENSHOTS** -[Australia wildfire dashboard](./images/Australia_wildfire_1.png)
-[Australia wildfire dashboard](./images/Australia_wildfire_2.png)
-[Automobile dashboard](./images/Automobile_dashboard_1.png)
-[Automobile dashboard](./images/Automobile_dashboard_2.png)
+**DASHBOARD SCREENSHOTS** -![Australia wildfire dashboard](./images/Australia_wildfire_1.png)
+![Australia wildfire dashboard](./images/Automobile_dashboard_2.png)
+![Automobile dashboard](./images/Automobile_dashboard_1.png)
+![Automobile dashboard](./images/Automobile_dashboard_2.png)
 
 
 
-5. ## SALES AND OPERATIONS PERFORMANCE TRACKING ##
+## 05. SALES AND OPERATIONS PERFORMANCE TRACKING
 
 **PROBLEM** - To find answers for questions analysing historical automobile sales data to understand  historical trends in automobile sales during different recession periods.
 
@@ -98,9 +98,9 @@
 
 **File** - [view notebook](./Sales_performance_tracking.ipynb)
 
-**VISUALISATION SCREENSHOTS** - [Recession and non - recession sales](./images/python_visualisations_1.png)
-[Vehicle sales during recession and non-recession](./images/python_visualisations_2.png)
-[Share of each vehicle type](./images/python_visualisations_3.png)
+**VISUALISATION SCREENSHOTS** - ![Recession and non - recession sales](./images/python_visualisations_1.png)
+![Vehicle sales during recession and non - recession](./images/python_visualisations_2.png)
+![Share of each vehicle type](./images/python_visualisations_3.png)
 
 
 
