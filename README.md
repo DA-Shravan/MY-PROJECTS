@@ -15,10 +15,10 @@
 
 **File** - [view notebook](./Stock_data_extraction.ipynb)
 
-**VISUALISATIONS SCREENSHOTS** - [Tesla revenue graph](./Tesla_revenue.png)
-[Tesla Share Price graph](./Tesla_share_price.png)
-[GameStop revenue graph](./Gamestop_revenue.png)
-[GameStop Share Price graph](./Gamestop_share_price.png)
+**VISUALISATIONS SCREENSHOTS** - [Tesla revenue graph](./images/Tesla_revenue.png)
+[Tesla Share Price graph](./images/Tesla_share_price.png)
+[GameStop revenue graph](./images/Gamestop_revenue.png)
+[GameStop Share Price graph](./images/Gamestop_share_price.png)
 
 
 
@@ -54,7 +54,7 @@
 
 **INSIGHTS** -Successfully automated a data pipeline that captures market data in under 5 seconds, ensuring 100% accuracy compared to manual entry.
 
-**File** - [view notebook](./Financial_data_scraper.ipynb)
+**File** - [view notebook](./Financial_data_scrapper.ipynb)
 
 
 
@@ -75,10 +75,10 @@
 
 **File** - [view notebook](./Interactive_dashboard.ipynb)
 
-**DASHBOARD SCREENSHOTS** -[Australia wildfire dashboard](./Australia_wildfire_1.png)
-[Australia wildfire dashboard](./Australia_wildfire_2.png)
-[Automobile dashboard](./Automobile_dashboard_1.png)
-[Automobile dashboard](./Automobile_dashboard_2.png)
+**DASHBOARD SCREENSHOTS** -[Australia wildfire dashboard](./images/Australia_wildfire_1.png)
+[Australia wildfire dashboard](./images/Australia_wildfire_2.png)
+[Automobile dashboard](./images/Automobile_dashboard_1.png)
+[Automobile dashboard](./images/Automobile_dashboard_2.png)
 
 
 
@@ -98,18 +98,18 @@
 
 **File** - [view notebook](./Sales_performance_tracking.ipynb)
 
-**VISUALISATION SCREENSHOTS** - [Recession and non - recession sales](./python_visualisations_1.png)
-[Vehicle sales during recession and non-recession](./python_visualisations_2.png)
-[Share of each vehicle type](./python_visualisations_3.png)
+**VISUALISATION SCREENSHOTS** - [Recession and non - recession sales](./images/python_visualisations_1.png)
+[Vehicle sales during recession and non-recession](./images/python_visualisations_2.png)
+[Share of each vehicle type](./images/python_visualisations_3.png)
 
 
 
-##Technical Toolkit##
+## Technical Toolkit ##
 
-Programming: Python (Pandas, NumPy, Scikit-Learn)
+**Programming:** Python (Pandas, NumPy, Scikit-Learn)
 
-Visualization: Matplotlib, Seaborn, Plotly
+**Visualization:** Matplotlib, Seaborn, plotly
 
-Data Extraction: Web Scraping (BeautifulSoup), SQL basics
+**Data Extraction:** Web Scraping (BeautifulSoup), SQL basics
 
-Tools: GitHub, VS Code, Jupyter Notebooks
+**Tools:** GitHub, VS Code, Jupyter Notebooks
