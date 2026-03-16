@@ -1,66 +1,110 @@
----DATA ANALYTICS PORTFOLIO ---
+<h1 align="center">📊 Data Analytics Portfolio</h1>
 
-1. EXTRACTING AND VISUALISING STOCK DATA
+1. ## EXTRACTING AND VISUALISING STOCK DATA ##
 
-**OBJECTIVE** - Extracting data from dataset and making visualisations to derive correct decisons based on the data.
+**PROBLEM** - Similar to project no.3
 
-**TOOLS** - Python (pandas, scikit-learn, seaborn,plotly).
+**DATASET** - Stock data from public domains
 
-**Insights** - Historical Revenue and shareprice have skyrocketted between 2010 and 2020.
+**TOOLS** - plotly, yfinance, BeautifulSoup, pandas, requests
+
+**PROCESS** - 1. Used Webscraping to extract Tesla revenue data as well as GME revenue data, meanwhile used yfinance library to extract stock data.
+2. Used functionalities to plot graph of Tesla stock graph as well as GameStop stock graph to identify trends.
+
+**INSIGHTS** - Share Price and revenue of Tesla follow a similar trend where graph show a definite peak in recent past ( in the last 2 decades ), meanwhile GameStop stock graph shows an indefinite trend where Share Price has increased in the last decade but a substantial dip is being noticed in the revenue graph.
 
 **File** - [view notebook](./Stock_data_extraction.ipynb)
 
+**VISUALISATIONS SCREENSHOTS** - [Tesla revenue graph](./Tesla_revenue.png)
+[Tesla Share Price graph](./Tesla_share_price.png)
+[GameStop revenue graph](./Gamestop_revenue.png)
+[GameStop Share Price graph](./Gamestop_share_price.png)
 
 
-2. HOUSE SALES PREDICTIVE MODELLING (KING COUNTY, WA)
 
-**OBJECTIVE** - Estimating property values based on historical data, by performing EDA, handling missing values and conducting regression analysis.
+2. ## HOUSE SALES PREDICTIVE MODELLING (KING COUNTY, WA) ##
 
-**TOOLS** - pandas, matplotlib, seaborn, scikit-learn.
+**PROBLEM** - Real estate investors in King County lack a data-driven way to predict property values, leading to potential overpayment or missed opportunities.
 
-**INSIGHTS** - Identified square footage and home grade are most significant drivers of price, outperforming bedroom count in predictive accuracy.
+**DATASET** - Historical sales data for King County, WA, including 20,000+ records with features like square footage, location, and home grade.
+
+**TOOLS** - Python, pandas, numpy, BeautifulSoup
+
+**PROCESS** - 1. Cleaned missing values and handled outliers in pricing data.
+2. Conducted Exploratory Data Analysis (EDA) to find variables with the highest correlation to price.
+3. Developed and evaluated a Multiple Linear Regression model.
+
+**INSIGHTS** - Home "grade" and total living area (sqft) are the primary value drivers—each additional grade level correlates with a significant, predictable jump in market value.
 
 **File** - [view notebook](./House_sales_analysis.ipynb)
 
 
 
-3. AUTOMATED FINANCIAL DATA SCRAPER
+3. ## AUTOMATED FINANCIAL DATA SCRAPER ##
 
-**OBJECTIVE** - Collecting stock market data and exporting it in a structured format
+**PROBLEM** - Manual tracking of stock market fluctuations is inefficient and prone to human error, hindering real-time decision-making.
+
+**DATASET** - Live-scraped financial data from public market websites.
 
 **TOOLS** - BeautifulSoup, Requests, pandas
 
-**VALUE** - Created a repeatable pipeline that reduces data gathering time from hours to seconds.
+**PROCESS** - 1. Built a web scraper to target specific financial tables.
+2. Automated the conversion of raw HTML data into structured Pandas DataFrames.
+3. Cleaned and formatted numerical data for immediate analysis.
+
+**INSIGHTS** -Successfully automated a data pipeline that captures market data in under 5 seconds, ensuring 100% accuracy compared to manual entry.
 
 **File** - [view notebook](./Financial_data_scraper.ipynb)
 
 
 
-4. INTERACTIVE DATA STORYTELLING
 
-**OBJECTIVE** - Communicating complex data trends to non-technical stakeholders.
+4. ## INTERACTIVE DATA STORYTELLING ##
 
-**TOOLS** - plotly, seaborn, matlotlib, numpy
+**PROBLEM** - Management lacks a centralized, interactive view of regional performance, making it difficult to spot trends over time.
 
-**DESIGN FOCUS** - Emphasized clarity, labeling, and professional color palettes to ensure insights are "at-a-glance" accessible.
+**DATASET** - Multi-year operational data categorized by region and category.
+
+**TOOLS** - Dash by Plotly, pandas
+
+**PROCESS** -1. Defined Key Performance Indicators (KPIs) relevant to business growth.
+2. Built a callback-based dashboard allowing users to filter by year and region.
+3. Integrated real-time graphing for trend analysis.
+
+**INSIGHTS** - Found that 80% of regional volatility was tied to specific seasonal cycles, allowing for better resource allocation in future quarters.
 
 **File** - [view notebook](./Interactive_dashboard.ipynb)
 
+**DASHBOARD SCREENSHOTS** -[Australia wildfire dashboard](./Australia_wildfire_1.png)
+[Australia wildfire dashboard](./Australia_wildfire_2.png)
+[Automobile dashboard](./Automobile_dashboard_1.png)
+[Automobile dashboard](./Automobile_dashboard_2.png)
 
 
-5. SALES AND OPERATIONS PERFORMANCE TRACKING
 
-**OBJECTIVE** - Tracking business KPI's across different categories and designing a visual layout for performance tracking.
+5. ## SALES AND OPERATIONS PERFORMANCE TRACKING ##
 
-**TOOLS** - pandas, matplotlib, plotly
+**PROBLEM** - To find answers for questions analysing historical automobile sales data to understand  historical trends in automobile sales during different recession periods.
 
-**VALUE** - Established a "Single Source of Truth" layout for monitoring organizational health.
+**DATASET** -  contains historical_automobile_sales data representing automobile sales and related variables during recession and non-recession period.
+
+**TOOLS** - pandas, numpy, matplotlib, seaborn, folium
+
+**PROCESS** - 1. Analysed trends in different years of recession and made appropriate visualisation to highlight the same.
+2. Used functionality of seaborn library to create visualisations to compare sales trend per vehicle type for recession period v/s non-recession period.
+3. Analysed Advertisement expenditure for each vehicle type during recession period.
+
+**INSIGHTS** - Highest Automobile sales is accounted in the year 1994-95 (non-recession year), conversely, medium family car accounted for the highest share among different vehicle types in Total advertising during recessions.
 
 **File** - [view notebook](./Sales_performance_tracking.ipynb)
 
+**VISUALISATION SCREENSHOTS** - [Recession and non - recession sales](./python_visualisations_1.png)
+[Vehicle sales during recession and non-recession](./python_visualisations_2.png)
+[Share of each vehicle type](./python_visualisations_3.png)
 
 
---Technical Toolkit--
+
+##Technical Toolkit##
 
 Programming: Python (Pandas, NumPy, Scikit-Learn)
 
