@@ -8,13 +8,12 @@ jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Explicitly tells GitHub this job has write access
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
         
-      - name: GitHub Traffic Sync
-        uses: HustonMccallister/repository-traffic-action@v1.0.1
-        env:
-          FEED_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          STATIC_BUILD: true
+      - name: Fetch Traffic Stats
+        uses: wjdp/html-stats-action@v1.1.0
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
