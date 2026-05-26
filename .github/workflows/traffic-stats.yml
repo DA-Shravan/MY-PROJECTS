@@ -1,0 +1,15 @@
+name: gh-traffic-stats
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: GitHub Traffic Sync
+        uses: sangonzal/repository-traffic-action@v0.1.4
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
