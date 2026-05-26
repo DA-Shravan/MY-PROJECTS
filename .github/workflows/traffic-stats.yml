@@ -13,7 +13,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         
-      - name: Fetch Traffic Stats
-        uses: wjdp/html-stats-action@v1.1.0
-        with:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save Traffic Log
+        run: |
+          mkdir -p analytics
+          echo "Log Entry: $(date)" >> analytics/views_log.txt
+          curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/traffic/views" >> analytics/raw_views.json
+
+      - name: Commit and Push Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add analytics/
+          git commit -m "analytics: automatically logged latest repository traffic metrics" || exit 0
+          git push origin main
