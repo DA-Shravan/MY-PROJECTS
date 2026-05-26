@@ -19,7 +19,7 @@ Automotive manufacturers and marketers struggle to optimize advertising spend ac
 
 ## 📊 3. Visualizations & Core Insights
 
-> 💡 **Recruiter Note:** The complete interactive visual breakdown can be viewed by opening the Jupyter Notebook inside this directory.
+>[📊 Launch Interactive Jupyter Notebook Preview](./Interactive_dashboard.ipynb)
 
 ### Key Data Insights Discovered:
 * **The 1994-1995 Peak:** Historical analysis revealed that overall automotive sales volume peaked sharply during the 1994-1995 non-recession cycle, driven by high consumer confidence.
