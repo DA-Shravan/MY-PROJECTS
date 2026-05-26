@@ -7,9 +7,14 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Explicitly tells GitHub this job has write access
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
       - name: GitHub Traffic Sync
-        uses: sangonzal/repository-traffic-action@v0.1.4
+        uses: HustonMccallister/repository-traffic-action@v1.0.1
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FEED_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATIC_BUILD: true
