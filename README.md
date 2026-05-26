@@ -1,5 +1,7 @@
 ## 🚀 Featured Data Analytics Projects
 
+![Clones Counter](https://github-clone-count-badge.herokuapp.com/DA-Shravan/MY-PROJECTS/clones.svg)
+
 ### 01. End-to-End Stock Market Data Extraction & Scraping Pipeline
 * **Business Case:** Manual collection of historical stock data and corporate revenue streams is inefficient and highly prone to error, preventing real-time market assessment.
 * **Core Stack:** `BeautifulSoup`, `yfinance`, `Pandas`, `Plotly`, `requests`
