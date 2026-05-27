@@ -1,12 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="8" class="">
-    <defs>
-        <style/>
-    </defs>
-    <style>@keyframes animation-gauge{0%{stroke-dasharray:0 329}}@keyframes animation-rainbow{0%,to{color:#7f00ff;fill:#7f00ff}14%{color:#a933ff;fill:#a933ff}29%{color:#007fff;fill:#007fff}43%{color:#00ff7f;fill:#00ff7f}57%{color:#ff0;fill:#ff0}71%{color:#ff7f00;fill:#ff7f00}86%{color:red;fill:red}}svg{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;font-size:14px;color:#777}:root{--color-calendar-graph-day-bg:#ebedf0;--color-calendar-graph-day-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L1-bg:#9be9a8;--color-calendar-graph-day-L2-bg:#40c463;--color-calendar-graph-day-L3-bg:#30a14e;--color-calendar-graph-day-L4-bg:#216e39;--color-calendar-halloween-graph-day-L1-bg:#ffee4a;--color-calendar-halloween-graph-day-L2-bg:#ffc501;--color-calendar-halloween-graph-day-L3-bg:#fe9600;--color-calendar-halloween-graph-day-L4-bg:#03001c;--color-calendar-winter-graph-day-L1-bg:#0a3069;--color-calendar-winter-graph-day-L2-bg:#0969da;--color-calendar-winter-graph-day-L3-bg:#54aeff;--color-calendar-winter-graph-day-L4-bg:#b6e3ff;--color-calendar-graph-day-L4-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L3-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L2-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L1-border:rgba(27,31,35,0.06)}#metrics-end{width:100%}</style>
-    <style/>
-    <foreignObject x="0" y="0" width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" class="items-wrapper">
-        </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" id="metrics-end"></div>
-    </foreignObject>
-</svg>
+name: gh-traffic-stats
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Fetch Analytics and Update README
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          import os
+          import requests
+          from datetime import datetime
+
+          repo = os.getenv('GITHUB_REPOSITORY')
+          token = os.getenv('GITHUB_TOKEN')
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github+json"
+          }
+          
+          # 1. Fetch Repository Info (Stars, Forks)
+          repo_url = f"https://api.github.com/repos/{repo}"
+          repo_data = requests.get(repo_url, headers=headers).json()
+          stars = repo_data.get('stargazers_count', 0)
+          forks = repo_data.get('forks_count', 0)
+
+          # 2. Fetch Traffic Views
+          views_url = f"https://api.github.com/repos/{repo}/traffic/views"
+          views_data = requests.get(views_url, headers=headers).json()
+          total_views = views_data.get('count', 0)
+          total_uniques = views_data.get('uniques', 0)
+          
+          current_date = datetime.utcnow().strftime('%Y-%m-%d')
+
+          # Read current README structure
+          readme_path = "README.md"
+          if os.path.exists(readme_path):
+              with open(readme_path, "r") as f:
+                  lines = f.readlines()
+          else:
+              lines = ["# Portfolio\n"]
+
+          # Filter out old stats tracking sections to avoid infinite appending
+          new_lines = []
+          skip = False
+          for line in lines:
+              if "## 📊 Live Repository Insights" in line:
+                  skip = True
+              if skip and line.startswith("#") and "## 📊 Live Repository Insights" not in line:
+                  skip = False
+              if not skip:
+                  new_lines.append(line)
+
+          # Create fresh dashboard display block
+          dashboard = [
+              "\n## 📊 Live Repository Insights\n",
+              f"Last Updated: `{current_date} UTC`\n\n",
+              "| Metric | Total Count |\n",
+              "| :--- | :--- |\n",
+              f"| ⭐ Repository Stars | {stars} |\n",
+              f"| 🍴 Repository Forks | {forks} |\n",
+              f"| 👀 Total Page Views (14-day window) | {total_views} |\n",
+              f"| 👤 Unique Visitors (14-day window) | {total_uniques} |\n"
+          ]
+          
+          new_lines.extend(dashboard)
+
+          with open(readme_path, "w") as f:
+              f.writelines(new_lines)
+          print("Successfully updated README metrics dashboard.")
+        shell: python
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "analytics: updated repository insights dashboard" || exit 0
+          git push origin main
